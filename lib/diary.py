@@ -1,16 +1,12 @@
 class Diary:
-    # Where user can view diary entries
 
     def __init__(self):
-        # holds diary items
+        self.list = []
         pass
 
     def entry_list(self):
-        # Parameters:
-        #   track: an instance of Track
-        # Side-effects:
-        #   Adds the track to the tracks property of the self object
-        pass # No code here yet
+        return self.list()
+        # Returns: list of strings
 
     def search_by_phone_numbers(self, phone_no):
         # check all entries for contact numbers and return those entries (format focused)
