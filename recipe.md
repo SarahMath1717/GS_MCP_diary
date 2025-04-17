@@ -30,68 +30,100 @@ uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com_
 
 ```
 ┌────────────────────────────┐
-│ MusicPlayer                │
+│ Diary                      │
 │                            │
-│ - tracks                   │
-│ - add(track)               │
-│ - search_by_title(keyword) │
-│   => [tracks...]           │
+│   => [Diary Entries]       │
+│ - list all entries         │
+│ - pull entry by size       │
+│ - pull entry w/ phone no.  |
+│   => [To Do]               │
+│ - pull 'to do' list entry  |
 └───────────┬────────────────┘
             │
             │ owns a list of
             ▼
 ┌─────────────────────────┐
-│ Track(title, artist)    │
+│ Diary Entries           │
 │                         │
-│ - title                 │
-│ - artist                │
+│ - add entry             │
 │ - format()              │
+│ - lenght/word check     │
+│ - todo entries          │
 │   => "TITLE by ARTIST"  │
 └─────────────────────────┘
+
 ```
 
 _Also design the interface of each class in more detail._
 
 ```python
-class MusicLibrary:
-    # User-facing properties:
-    #   tracks: list of instances of Track
+
+class Diary:
+    # Where user can view diary entries
 
     def __init__(self):
-        pass # No code here yet
+        # holds diary items
+        pass
 
-    def add(self, track):
+    def entry_list(self):
         # Parameters:
         #   track: an instance of Track
         # Side-effects:
         #   Adds the track to the tracks property of the self object
         pass # No code here yet
 
-    def search_by_title(self, keyword):
-        # Parameters:
-        #   keyword: string
-        # Returns:
-        #   A list of the Track objects that have titles that include the keyword
+    def search_by_phone_numbers(self, phone_no):
+        # check all entries for contact numbers and return those entries (format focused)
+        # Returns: list of strings
         pass # No code here yet
 
+    def search_for_todo_entries(self, todo):
+        # check all entries for 'todo' and return those entries
+        # Returns: list of strings
+        pass
 
-class Track:
-    # User-facing properties:
-    #   title: string
-    #   artist: string
+    def search_for_entry_by_size(self):
+        # input read time and pull compatible diary entries
+        # Returns: single string
+        pass
 
-    def __init__(self, title, artist):
+
+class DiaryEntries:
+    # Where user can add diary entries
+    #   date: string
+    #   entry: string
+
+    def __init__(self, date, entry):
         # Parameters:
-        #   title: string
-        #   artist: string
+        #   date: string
+        #   entry: string
         # Side-effects:
         #   Sets the title and artist properties
-        pass # No code here yet
+        pass
+
+    def add_diary(self, date, entry):
+        # Parameters:
+        #   date: string
+        #   entry: string
+        # Actions:
+        #   Creates diary entry
 
     def format(self):
         # Returns:
-        #   A string of the form "TITLE by ARTIST"
-        pass # No code here yet
+        #   A string of the form "date: entry"
+        pass
+
+
+class Todo:
+    #store items to be done
+
+    def __init__(self, task):
+        # Storage for 'to do' tasks
+        pass
+    
+    def add_todo(self, task):
+        # create new task entry
+        pass
 
 ```
 
